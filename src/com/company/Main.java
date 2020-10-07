@@ -24,7 +24,23 @@ public class Main {
                 return false;
             }
         }
-        System.out.println("Nombre de " + number + " = " + count);
+        System.out.println("Nombre de " + number + " sur la  ligne  = " + count);
+        return true;
+    }
+
+
+    public static boolean checkcolone(int tab[][],int colonne, int number){
+        System.out.println("------");
+        int count = 0;
+        for (int j = 0; j < tab[colonne].length; j++){
+            if(tab[j][colonne] == number){
+                count++;
+            }
+            if(count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " sur la  colonne  = " + count);
         return true;
     }
 
@@ -43,6 +59,7 @@ public class Main {
         };
         displayGrid(boardEasy);
 
-        checkLine(boardEasy, 5, 5);
+        checkLine(boardEasy, 0, 1);
+        checkcolone(boardEasy, 6,6);
     }
 }
