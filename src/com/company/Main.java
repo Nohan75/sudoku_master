@@ -13,6 +13,21 @@ public class Main {
         }
     }
 
+    public static boolean checkLine(int tab[][],int line, int number){
+        System.out.println("------");
+        int count = 0;
+        for (int i = 0; i < tab[line].length; i++){
+            if(tab[line][i] == number){
+                count++;
+            }
+            if(count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+        return true;
+    }
+
     public static void main(String[] args) {
 	// write your code here
         int[][] boardEasy = {
@@ -27,5 +42,7 @@ public class Main {
                 {6, 0, 7, 9, 0, 5, 3, 0, 0}
         };
         displayGrid(boardEasy);
+
+        checkLine(boardEasy, 5, 5);
     }
 }
