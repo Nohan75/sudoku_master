@@ -44,6 +44,187 @@ public class Main {
         return true;
     }
 
+    public static boolean checkSection1(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection2(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection3(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection4(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection5(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection6(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection7(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection8(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection9(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+    public static boolean checkSection(int tab[][], int number){
+        System.out.println("------");
+        int count = 0;
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(tab[i][j] == number){
+                    count++;
+                }
+            }
+            if (count > 1){
+                return false;
+            }
+        }
+        System.out.println("Nombre de " + number + " = " + count);
+
+        return true;
+    }
+
     public static void main(String[] args) {
 	// write your code here
         int[][] boardEasy = {
@@ -59,7 +240,8 @@ public class Main {
         };
         displayGrid(boardEasy);
 
-        checkLine(boardEasy, 0, 1);
-        checkcolone(boardEasy, 6,6);
+        System.out.println(checkLine(boardEasy, 0, 1));
+        System.out.println(checkcolone(boardEasy, 0,8));
+        System.out.println(checkSection(boardEasy, 2));
     }
 }
