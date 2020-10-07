@@ -44,6 +44,24 @@ public class Main {
         return true;
     }
 
+    public static boolean checkSection(int tab[][], int section,int number){
+        System.out.println("------");
+        int count= 0;
+        for (int i=0; i<3;i++){
+            for (int j=3; j<6;j++){
+                if (tab[i][j]==number){
+                    count++;
+                }
+            }
+            if (count>1){
+                    return false;
+                }
+        }System.out.println("la section  est valide");
+        return true;
+
+
+    }
+
     public static void main(String[] args) {
 	// write your code here
         int[][] boardEasy = {
@@ -61,5 +79,6 @@ public class Main {
 
         checkLine(boardEasy, 0, 1);
         checkcolone(boardEasy, 6,6);
+        checkSection(boardEasy,1,1);
     }
 }
