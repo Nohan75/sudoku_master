@@ -48,7 +48,7 @@ public class Main {
         System.out.println("------");
         int count= 0;
         for (int i=0; i<3;i++){
-            for (int j=3; j<6;j++){
+            for (int j=0; j<3;j++){
                 if (tab[i][j]==number){
                     count++;
                 }
