@@ -218,7 +218,7 @@ public class Main {
                     && checkSection8(tab, number) && checkSection9(tab, number)){
 
                 return true;
-                
+
             }
         }
         return false;
