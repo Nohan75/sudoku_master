@@ -209,21 +209,27 @@ public class Main {
         return true;
     }
 
-    public static boolean grilleValide(int[][] tab, int number){
+    public static boolean grilleValide(int[][] tab){
         System.out.println("---------");
-        for(int i = 0; i < 9; i++){
-            if(checkcolone(tab, i, number) && checkLine(tab, i, number) && checkSection1(tab, number)
-                    && checkSection2(tab, number) && checkSection3(tab, number) && checkSection4(tab, number)
-                    && checkSection5(tab, number) && checkSection6(tab, number) && checkSection7(tab, number)
-                    && checkSection8(tab, number) && checkSection9(tab, number)){
+        boolean isValid = false;
+        for(int x = 1; x < 10; x++) {
+            for (int i = 0; i < 9; i++) {
+                if (checkcolone(tab, i, x) && checkLine(tab, i, x) && checkSection1(tab, x)
+                        && checkSection2(tab, x) && checkSection3(tab, x) && checkSection4(tab, x)
+                        && checkSection5(tab, x) && checkSection6(tab, x) && checkSection7(tab, x)
+                        && checkSection8(tab, x) && checkSection9(tab, x)) {
 
-                return true;
+                    isValid = true;
 
+                } else {
+                    isValid = false;
+                    return isValid;
+                }
             }
         }
-        return false;
+        return isValid;
     }
-    
+
 
     public static void main(String[] args) {
 	// write your code here
@@ -245,6 +251,6 @@ public class Main {
 //        System.out.println(checkLine(boardEasy, 0, 1));
 //        System.out.println(checkcolone(boardEasy, 0,8));
 //        System.out.println(checkSection5(boardEasy, 9));
-        System.out.println(grilleValide(boardEasy, 9));
+        System.out.println(grilleValide(boardEasy));
     }
 }
