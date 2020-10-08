@@ -223,13 +223,14 @@ public class Main {
         }
         return false;
     }
+    
 
     public static void main(String[] args) {
 	// write your code here
 
         int[][] boardEasy = {
                 {4, 0, 0, 1, 0, 2, 6, 8, 0},
-                {1, 0, 0, 9, 9, 0, 0, 0, 4},
+                {1, 0, 0, 0, 9, 0, 0, 0, 4},
                 {0, 3, 8, 0, 6, 4, 0, 1, 0},
                 {0, 0, 5, 0, 7, 1, 9, 2, 0},
                 {0, 2, 6, 0, 0, 9, 8, 0, 0},
@@ -238,6 +239,7 @@ public class Main {
                 {2, 5, 0, 6, 0, 0, 1, 0, 7},
                 {6, 0, 7, 9, 0, 5, 3, 0, 0}
         };
+        displayGrid(boardEasy);
 
         displayGrid(boardEasy);
 //        System.out.println(checkLine(boardEasy, 0, 1));
