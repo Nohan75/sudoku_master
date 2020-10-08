@@ -218,6 +218,7 @@ public class Main {
                     && checkSection8(tab, number) && checkSection9(tab, number)){
 
                 return true;
+                
             }
         }
         return false;
@@ -225,6 +226,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
         int[][] boardEasy = {
                 {4, 0, 0, 1, 0, 2, 6, 8, 0},
                 {1, 0, 0, 9, 9, 0, 0, 0, 4},
