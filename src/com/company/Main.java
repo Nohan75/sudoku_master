@@ -241,6 +241,7 @@ public class Main {
         return false;
     }
 
+    static int tour = 0;
 
     public static boolean replaceNumber(int[][] tab){
         for (int i = 0; i < 9; i++){
@@ -248,6 +249,7 @@ public class Main {
                 if(tab[i][j] == 0){
                     for (int nb = 1; nb < 10; nb++){
                         tab[i][j] = nb;
+                        tour++;
                         if (grilleValide(tab) && replaceNumber(tab)){
                              return true;
                         }
@@ -267,6 +269,7 @@ public class Main {
         displayGrid(tab);
         System.out.println(replaceNumber(tab));
         System.out.println(grilleValide(tab));
+        System.out.println("Coût pour le CPU: " + tour);
 
     }
 
