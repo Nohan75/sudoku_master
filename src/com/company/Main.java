@@ -1,8 +1,6 @@
 package com.company;
 
 
-import com.robin.Boards;
-import org.w3c.dom.ls.LSOutput;
 
 public class Main {
 
@@ -210,14 +208,14 @@ public class Main {
     }
 
     public static boolean grilleValide(int[][] tab){
-        System.out.println("---------");
         boolean isValid = false;
-        for(int x = 1; x < 10; x++) {
+        int number = 1;
+        while(number < 10) {
             for (int i = 0; i < 9; i++) {
-                if (checkcolone(tab, i, x) && checkLine(tab, i, x) && checkSection1(tab, x)
-                        && checkSection2(tab, x) && checkSection3(tab, x) && checkSection4(tab, x)
-                        && checkSection5(tab, x) && checkSection6(tab, x) && checkSection7(tab, x)
-                        && checkSection8(tab, x) && checkSection9(tab, x)) {
+                if (checkcolone(tab, i, number) && checkLine(tab, i, number) && checkSection1(tab, number)
+                        && checkSection2(tab, number) && checkSection3(tab, number) && checkSection4(tab, number)
+                        && checkSection5(tab, number) && checkSection6(tab, number) && checkSection7(tab, number)
+                        && checkSection8(tab, number) && checkSection9(tab, number)) {
 
                     isValid = true;
 
@@ -226,8 +224,50 @@ public class Main {
                     return isValid;
                 }
             }
+            number++;
         }
+
         return isValid;
+    }
+
+    public static boolean checkZero(int[][] tab){
+        for (int i = 0; i < 9; i++){
+            for (int j = 0; j < 9; j++){
+                if(tab[i][j] == 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean replaceNumber(int[][] tab){
+        for (int i = 0; i < 9; i++){
+            for (int j = 0; j < 9; j++){
+                if(tab[i][j] == 0){
+                    for (int nb = 1; nb < 10; nb++){
+                        tab[i][j] = nb;
+                        if (grilleValide(tab) && replaceNumber(tab)){
+                             return true;
+                        }
+                        tab[i][j] = 0;
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void play(int[][] tab){
+        displayGrid(tab);
+        System.out.println("------");
+        replaceNumber(tab);
+        displayGrid(tab);
+        System.out.println(replaceNumber(tab));
+        System.out.println(grilleValide(tab));
+
     }
 
 
@@ -245,12 +285,45 @@ public class Main {
                 {2, 5, 0, 6, 0, 0, 1, 0, 7},
                 {6, 0, 7, 9, 0, 5, 3, 0, 0}
         };
-        displayGrid(boardEasy);
+        int[][] boardMedium = {
+                {0, 7, 0, 3, 4, 0, 2, 0, 6},
+                {9, 0, 0, 7, 0, 6, 0, 0, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {2, 0, 0, 0, 7, 9, 8, 6, 0},
+                {0, 0, 0, 0, 0, 2, 3, 0, 4},
+                {4, 0, 7, 5, 0, 8, 0, 0, 0},
+                {0, 0, 0, 9, 0, 0, 0, 0, 0},
+                {0, 0, 6, 0, 0, 0, 0, 1, 7},
+                {5, 1, 0, 0, 8, 0, 4, 0, 2}
+        };
+        int[][] boardHard = {
+                {0, 0, 0, 0, 0, 0, 9, 4, 0},
+                {6, 0, 0, 0, 0, 0, 2, 7, 0},
+                {8, 2, 0, 0, 4, 9, 6, 0, 0},
+                {0, 7, 4, 0, 0, 0, 0, 0, 0},
+                {1, 0, 0, 7, 6, 0, 0, 0, 0},
+                {0, 6, 2, 0, 0, 5, 0, 8, 0},
+                {0, 0, 0, 0, 5, 7, 0, 2, 3},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {7, 5, 3, 2, 0, 4, 0, 0, 0}
+        };
+        int[][] boardGodLike = {
+                {0, 0, 0, 6, 0, 2, 8, 0, 4},
+                {0, 0, 0, 0, 3, 0, 0, 0, 7},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {4, 0, 6, 0, 5, 0, 3, 0, 0},
+                {2, 0, 8, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 9, 1, 0},
+                {1, 0, 0, 0, 0, 0, 2, 0, 0},
+                {0, 7, 0, 9, 0, 0, 0, 5, 0},
+                {0, 0, 2, 4, 0, 0, 0, 0, 8}
+        };
 
-        displayGrid(boardEasy);
+//        displayGrid(boardEasy);
 //        System.out.println(checkLine(boardEasy, 0, 1));
 //        System.out.println(checkcolone(boardEasy, 0,8));
 //        System.out.println(checkSection5(boardEasy, 9));
-        System.out.println(grilleValide(boardEasy));
+//        System.out.println(grilleValide(boardEasy, 0));
+        play(boardEasy);
     }
 }
