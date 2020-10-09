@@ -3,7 +3,10 @@ package com.company;
 
 
 public class Main {
-
+    /**
+     * Fonction pour afficher le tableau
+     * @param tab Le tableau qui sera afficher
+     */
     public static void displayGrid(int[][] tab){                //fonction afficher la grille
         for(int i = 0; i < tab.length; i++){                   //affiche  pour les lignes
             for(int j = 0; j < tab[i].length; j++){           // affiche  pour les colonnes
@@ -13,6 +16,13 @@ public class Main {
         }
     }
 
+    /**
+     * Fonction qui permet de verifier chaque ligne du tableau
+     * @param tab le tableau
+     * @param line le numero de la ligne
+     * @param number le nombre a verifier
+     * @return retourne le nombre de fois que le numero chercher apparait dans cette ligne
+     */
     public static boolean checkLine(int tab[][],int line, int number){     // bollean pour verif si les lignes sont correct
 //        System.out.println("------");
         int count = 0;                                                   //declare un conters = 0
@@ -28,7 +38,13 @@ public class Main {
         return true;                                           // retourbne ttrue sir la ligne est valide
     }
 
-
+    /**
+     * fonction qui permet de verifier chque colonne du tableau
+     * @param tab le tableau
+     * @param colonne le numero de la colonne
+     * @param number le nombre a verifier
+     * @return retourne le nombre de fois que le numero chercher aparait dans la colonne
+     */
     public static boolean checkcolone(int tab[][],int colonne, int number){   //verif colonnes
 //        System.out.println("------");
         int count = 0;
@@ -44,6 +60,12 @@ public class Main {
         return true;
     }
 
+    /**
+     * fonction qui permet de verifier si une section est valide
+     * @param tab le tableau
+     * @param number
+     * @return retourne vrai si la section ne contient pas deux fois le meme nombre
+     */
     public static boolean checkSection1(int tab[][], int number){            // verif section ( 3sur3 )
 //        System.out.println("------");
         int count = 0;                                                     // conteur à 0
@@ -207,6 +229,11 @@ public class Main {
         return true;
     }
 
+    /**
+     * fonction qui verifie la totoalité de la grille
+     * @param tab le tableau
+     * @return retourne vrai si le tableau est valide
+     */
     public static boolean grilleValide(int[][] tab){          //verif si toute la grille est valide( ligne + colonne + section )
         boolean isValid = false;
         int number = 1;
@@ -243,6 +270,11 @@ public class Main {
 
     static int tour = 0;
 
+    /**
+     * fonction qui permet de placer les nombre dans le tableau
+     * @param tab tableau
+     * @return retourne le tableau complet et remplis
+     */
     public static boolean replaceNumber(int[][] tab){
         for (int i = 0; i < 9; i++){                                                 //se dépalce dans les ligne
             for (int j = 0; j < 9; j++){                                            // se déplace dans les colones
@@ -263,6 +295,10 @@ public class Main {
 
     }
 
+    /**
+     * fonction  qui execute le programme
+     * @param tab le tableau
+     */
     public static void play(int[][] tab){
         displayGrid(tab);
         System.out.println("------");
