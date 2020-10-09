@@ -266,11 +266,18 @@ public class Main {
     public static void play(int[][] tab){
         displayGrid(tab);
         System.out.println("------");
+
+        long timeStart = System.currentTimeMillis();
+
         replaceNumber(tab);
         displayGrid(tab);
+
+        long timeEnd = System.currentTimeMillis();
+        long Time = timeEnd - timeStart;
+
         System.out.println(replaceNumber(tab));
         System.out.println(grilleValide(tab));
-        System.out.println("Coût pour le CPU: " + tour);
+        System.out.println("Coût pour le CPU: " + tour + " | " + "Temps de résolution: " + Time + " ms");
 
     }
 
