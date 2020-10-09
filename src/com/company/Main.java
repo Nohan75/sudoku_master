@@ -4,32 +4,32 @@ package com.company;
 
 public class Main {
 
-    public static void displayGrid(int[][] tab){
-        for(int i = 0; i < tab.length; i++){
-            for(int j = 0; j < tab[i].length; j++){
-                System.out.print(tab[i][j]);
+    public static void displayGrid(int[][] tab){                //fonction afficher la grille
+        for(int i = 0; i < tab.length; i++){                   //affiche  pour les lignes
+            for(int j = 0; j < tab[i].length; j++){           // affiche  pour les colonnes
+                System.out.print(tab[i][j]);                 // sout lignes + colones
             }
             System.out.println();
         }
     }
 
-    public static boolean checkLine(int tab[][],int line, int number){
+    public static boolean checkLine(int tab[][],int line, int number){     // bollean pour verif si les lignes sont correct
 //        System.out.println("------");
-        int count = 0;
-        for (int i = 0; i < tab[line].length; i++){
+        int count = 0;                                                   //declare un conters = 0
+        for (int i = 0; i < tab[line].length; i++){                     //se déplaces dans les lignes
             if(tab[line][i] == number){
-                count++;
+                count++;                                              // le conteur fait +1 pour les nombre de chiffres simm sur les lignes
             }
-            if(count > 1){
-                return false;
+            if(count > 1){                                          //si le conteur est < 1
+                return false;                                      //retrouner false si 1 ligne est faux
             }
         }
 //        System.out.println("Nombre de " + number + " sur la  ligne  = " + count);
-        return true;
+        return true;                                           // retourbne ttrue sir la ligne est valide
     }
 
 
-    public static boolean checkcolone(int tab[][],int colonne, int number){
+    public static boolean checkcolone(int tab[][],int colonne, int number){   //verif colonnes
 //        System.out.println("------");
         int count = 0;
         for (int j = 0; j < tab[colonne].length; j++){
@@ -44,17 +44,17 @@ public class Main {
         return true;
     }
 
-    public static boolean checkSection1(int tab[][], int number){
+    public static boolean checkSection1(int tab[][], int number){            // verif section ( 3sur3 )
 //        System.out.println("------");
-        int count = 0;
+        int count = 0;                                                     // conteur à 0
 
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
+        for (int i = 0; i < 3; i++){                                     //se balade dans les lignes 3sur3
+            for (int j = 0; j < 3; j++){                                //se balade dans les colonnes 3sur3
                 if(tab[i][j] == number){
                     count++;
                 }
             }
-            if (count > 1){
+            if (count > 1){                                         // verif si c'es tvalid sur une section
                 return false;
             }
         }
@@ -207,20 +207,20 @@ public class Main {
         return true;
     }
 
-    public static boolean grilleValide(int[][] tab){
+    public static boolean grilleValide(int[][] tab){          //verif si toute la grille est valide( ligne + colonne + section )
         boolean isValid = false;
         int number = 1;
         while(number < 10) {
             for (int i = 0; i < 9; i++) {
-                if (checkcolone(tab, i, number) && checkLine(tab, i, number) && checkSection1(tab, number)
+                if (checkcolone(tab, i, number) && checkLine(tab, i, number) && checkSection1(tab, number)  //verif section+ligne+colonne
                         && checkSection2(tab, number) && checkSection3(tab, number) && checkSection4(tab, number)
                         && checkSection5(tab, number) && checkSection6(tab, number) && checkSection7(tab, number)
                         && checkSection8(tab, number) && checkSection9(tab, number)) {
 
-                    isValid = true;
+                    isValid = true;              // retourne true si la grille est valid
 
                 } else {
-                    isValid = false;
+                    isValid = false;                //sinon retourne false
                     return isValid;
                 }
             }
@@ -230,7 +230,7 @@ public class Main {
         return isValid;
     }
 
-    public static boolean checkZero(int[][] tab){
+    public static boolean checkZero(int[][] tab){                // fonction pour check les 0
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++){
                 if(tab[i][j] == 0){
@@ -247,8 +247,8 @@ public class Main {
         for (int i = 0; i < 9; i++){                                                 //se dépalce dans les ligne
             for (int j = 0; j < 9; j++){                                            // se déplace dans les colones
                 if(tab[i][j] == 0){                                                // recherche les 0
-                    for (int nb = 1; nb < 10; nb++){                              //fait i++ de 1 à 10 si ils sont pas utilisée
-                        tab[i][j] = nb;                                          
+                    for (int nb = 1; nb < 10; nb++){                              //fait nb++ de 1 à 10 si ils sont pas utilisée
+                        tab[i][j] = nb;
                         tour++;                                                 //fait i++ pour calculer le nombre de coup
                         if (grilleValide(tab) && replaceNumber(tab)){          // pour etre valide il faut les 2 true
                             return true;                                      //remonte et remplace le 0 par les chiffre valide
@@ -278,7 +278,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        int[][] boardEasy = {
+        int[][] boardEasy = {                                          // grille donner à resoudre
                 {4, 0, 0, 1, 0, 2, 6, 8, 0},
                 {1, 0, 0, 0, 9, 0, 0, 0, 4},
                 {0, 3, 8, 0, 6, 4, 0, 1, 0},
@@ -328,6 +328,6 @@ public class Main {
 //        System.out.println(checkcolone(boardEasy, 0,8));
 //        System.out.println(checkSection5(boardEasy, 9));
 //        System.out.println(grilleValide(boardEasy, 0));
-        play(boardEasy);
+        play(boardEasy);           // joue la grille demander 
     }
 }
