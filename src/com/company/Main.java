@@ -244,22 +244,23 @@ public class Main {
     static int tour = 0;
 
     public static boolean replaceNumber(int[][] tab){
-        for (int i = 0; i < 9; i++){
-            for (int j = 0; j < 9; j++){
-                if(tab[i][j] == 0){
-                    for (int nb = 1; nb < 10; nb++){
-                        tab[i][j] = nb;
-                        tour++;
-                        if (grilleValide(tab) && replaceNumber(tab)){
-                             return true;
+        for (int i = 0; i < 9; i++){                                                 //se dépalce dans les ligne
+            for (int j = 0; j < 9; j++){                                            // se déplace dans les colones
+                if(tab[i][j] == 0){                                                // recherche les 0
+                    for (int nb = 1; nb < 10; nb++){                              //fait i++ de 1 à 10 si ils sont pas utilisée
+                        tab[i][j] = nb;                                          
+                        tour++;                                                 //fait i++ pour calculer le nombre de coup
+                        if (grilleValide(tab) && replaceNumber(tab)){          // pour etre valide il faut les 2 true
+                            return true;                                      //remonte et remplace le 0 par les chiffre valide
                         }
-                        tab[i][j] = 0;
+                        tab[i][j] = 0;                                      //si a la fin il y a enc des 0
                     }
-                    return false;
+                    return false;                                         //false et remonte pour dans la grille pour trouver erreur
                 }
             }
         }
-        return true;
+        return true;                                                  //retourne vrai si la grille est valide
+
     }
 
     public static void play(int[][] tab){
