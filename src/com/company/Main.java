@@ -8,9 +8,10 @@ public class Main {
      * @param tab Le tableau qui sera afficher
      */
     public static void displayGrid(int[][] tab){                //fonction afficher la grille
-        for(int i = 0; i < tab.length; i++){                   //affiche  pour les lignes
-            for(int j = 0; j < tab[i].length; j++){           // affiche  pour les colonnes
-                System.out.print(tab[i][j]);                 // sout lignes + colones
+        for(int i = 0; i < tab.length; i++){                   //se déplace dans les lignes
+            for(int j = 0; j < tab[i].length; j++){           // se déplace dans les colonnes
+                System.out.print(tab[i][j]);
+                System.out.print(" ");
             }
             System.out.println();
         }
@@ -18,32 +19,31 @@ public class Main {
 
     /**
      * Fonction qui permet de verifier chaque ligne du tableau
-     * @param tab le tableau
+     * @param tab le tableau à tester
      * @param line le numero de la ligne
      * @param number le nombre a verifier
      * @return retourne le nombre de fois que le numero chercher apparait dans cette ligne
      */
-    public static boolean checkLine(int tab[][],int line, int number){     // bollean pour verif si les lignes sont correct
+    public static boolean checkLine(int tab[][],int line, int number){     // boolean pour verifier si les contraintes d'une ligne
 //        System.out.println("------");
-        int count = 0;                                                   //declare un conters = 0
+        int count = 0;
         for (int i = 0; i < tab[line].length; i++){                     //se déplaces dans les lignes
             if(tab[line][i] == number){
-                count++;                                              // le conteur fait +1 pour les nombre de chiffres simm sur les lignes
+                count++;
             }
-            if(count > 1){                                          //si le conteur est < 1
-                return false;                                      //retrouner false si 1 ligne est faux
+            if(count > 1){
+                return false;
             }
         }
-//        System.out.println("Nombre de " + number + " sur la  ligne  = " + count);
-        return true;                                           // retourbne ttrue sir la ligne est valide
+        return true;
     }
 
     /**
-     * fonction qui permet de verifier chque colonne du tableau
-     * @param tab le tableau
+     * fonction qui permet de verifier chaque colonne du tableau
+     * @param tab le tableau à tester
      * @param colonne le numero de la colonne
      * @param number le nombre a verifier
-     * @return retourne le nombre de fois que le numero chercher aparait dans la colonne
+     * @return retourne true si la colonne est valide
      */
     public static boolean checkcolone(int tab[][],int colonne, int number){   //verif colonnes
 //        System.out.println("------");
@@ -56,7 +56,6 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " sur la  colonne  = " + count);
         return true;
     }
 
@@ -68,24 +67,21 @@ public class Main {
      */
     public static boolean checkSection1(int tab[][], int number){            // verif section ( 3sur3 )
 //        System.out.println("------");
-        int count = 0;                                                     // conteur à 0
+        int count = 0;
 
-        for (int i = 0; i < 3; i++){                                     //se balade dans les lignes 3sur3
-            for (int j = 0; j < 3; j++){                                //se balade dans les colonnes 3sur3
+        for (int i = 0; i < 3; i++){                                     //se déplace dans les lignes
+            for (int j = 0; j < 3; j++){                                //se déplace dans les colonnes
                 if(tab[i][j] == number){
                     count++;
                 }
             }
-            if (count > 1){                                         // verif si c'es tvalid sur une section
+            if (count > 1){
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection2(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 0; i < 3; i++){
@@ -98,12 +94,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection3(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 0; i < 3; i++){
@@ -116,12 +109,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection4(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 3; i < 6; i++){
@@ -134,12 +124,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection5(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 3; i < 6; i++){
@@ -152,12 +139,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection6(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 3; i < 6; i++){
@@ -170,12 +154,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection7(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 6; i < 9; i++){
@@ -188,12 +169,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection8(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 6; i < 9; i++){
@@ -206,12 +184,9 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
     public static boolean checkSection9(int tab[][], int number){
-//        System.out.println("------");
         int count = 0;
 
         for (int i = 6; i < 9; i++){
@@ -224,14 +199,12 @@ public class Main {
                 return false;
             }
         }
-//        System.out.println("Nombre de " + number + " = " + count);
-
         return true;
     }
 
     /**
-     * fonction qui verifie la totoalité de la grille
-     * @param tab le tableau
+     * fonction qui verifie la validité de toute la grille
+     * @param tab le tableau à tester
      * @return retourne vrai si le tableau est valide
      */
     public static boolean grilleValide(int[][] tab){          //verif si toute la grille est valide( ligne + colonne + section )
@@ -257,17 +230,6 @@ public class Main {
         return isValid;
     }
 
-    public static boolean checkZero(int[][] tab){                // fonction pour check les 0
-        for (int i = 0; i < 9; i++){
-            for (int j = 0; j < 9; j++){
-                if(tab[i][j] == 0){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     static int tour = 0;
 
     /**
@@ -279,15 +241,15 @@ public class Main {
         for (int i = 0; i < 9; i++){                                                 //se dépalce dans les ligne
             for (int j = 0; j < 9; j++){                                            // se déplace dans les colones
                 if(tab[i][j] == 0){                                                // recherche les 0
-                    for (int nb = 1; nb < 10; nb++){                              //fait nb++ de 1 à 10 si ils sont pas utilisée
+                    for (int nb = 1; nb < 10; nb++){                              //fait nb++ de 1 à 9 si ils sont pas utilisée
                         tab[i][j] = nb;
-                        tour++;                                                 //fait i++ pour calculer le nombre de coup
-                        if (grilleValide(tab) && replaceNumber(tab)){          // pour etre valide il faut les 2 true
+                        tour++;                                                 //Calcule le nombre de test.
+                        if (grilleValide(tab) && replaceNumber(tab)){
                             return true;                                      //remonte et remplace le 0 par les chiffre valide
                         }
-                        tab[i][j] = 0;                                      //si a la fin il y a enc des 0
+                        tab[i][j] = 0;                                      //Met 0 si un nombre n'est pas valide
                     }
-                    return false;                                         //false et remonte pour dans la grille pour trouver erreur
+                    return false;                                         //Si aucun nombre ne fonctionne
                 }
             }
         }
@@ -296,8 +258,8 @@ public class Main {
     }
 
     /**
-     * fonction  qui execute le programme
-     * @param tab le tableau
+     * fonction qui execute le programme
+     * @param tab la grille à résoudre
      */
     public static void play(int[][] tab){
         displayGrid(tab);
@@ -311,8 +273,6 @@ public class Main {
         long timeEnd = System.currentTimeMillis();
         long Time = timeEnd - timeStart;
 
-        System.out.println(replaceNumber(tab));
-        System.out.println(grilleValide(tab));
         System.out.println("Coût pour le CPU: " + tour + " | " + "Temps de résolution: " + Time + " ms");
 
     }
@@ -366,11 +326,6 @@ public class Main {
                 {0, 0, 2, 4, 0, 0, 0, 0, 8}
         };
 
-//        displayGrid(boardEasy);
-//        System.out.println(checkLine(boardEasy, 0, 1));
-//        System.out.println(checkcolone(boardEasy, 0,8));
-//        System.out.println(checkSection5(boardEasy, 9));
-//        System.out.println(grilleValide(boardEasy, 0));
-        play(boardEasy);           // joue la grille demander 
+        play(boardGodLike);           // joue la grille demander
     }
 }
